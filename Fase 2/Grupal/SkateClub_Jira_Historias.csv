@@ -1,0 +1,150 @@
+﻿Issue Type,Summary,Parent,Priority,Description
+"Story","HDU-01 · Registro de cuenta","SCRUM-1","High","Como visitante, quiero registrarme con email, nickname y contraseña, para crear mi perfil en SkateClub.
+
+Criterios de aceptación:
+- El sistema valida el formato del email.
+- El sistema valida la fortaleza mínima de la contraseña.
+- El nickname no puede repetirse.
+- Se crea el usuario en estado pendiente de verificación."
+"Story","HDU-02 · Verificación de email","SCRUM-1","High","Como usuario registrado, quiero verificar mi correo, para activar mi cuenta y usar la aplicación.
+
+Criterios de aceptación:
+- Se envía un correo con token o código.
+- El token o código expira.
+- El usuario queda verificado al completar el flujo."
+"Story","HDU-03 · Inicio de sesión seguro","SCRUM-1","High","Como usuario registrado, quiero iniciar sesión de forma segura, para acceder a mis funcionalidades privadas.
+
+Criterios de aceptación:
+- El backend valida la contraseña con hash bcrypt.
+- El backend devuelve un token válido.
+- El frontend guarda la sesión de forma segura.
+- Si las credenciales son incorrectas, se muestra un mensaje controlado."
+"Story","HDU-04 · Recuperación de contraseña","SCRUM-1","High","Como usuario, quiero recuperar mi contraseña mediante un código enviado por email, para recuperar el acceso a mi cuenta.
+
+Criterios de aceptación:
+- El usuario solicita la recuperación con su email.
+- El sistema genera un código de un solo uso.
+- El código permite definir una nueva contraseña.
+- Si el correo no se envía, no se muestra éxito falso."
+"Story","HDU-05 · Perfil skater","SCRUM-1","High","Como usuario, quiero editar mi perfil skater, para mostrar mi información a la comunidad.
+
+Criterios de aceptación:
+- Puede editar avatar, comuna, crew, stance y trayectoria.
+- El sistema guarda los cambios.
+- Otros usuarios ven una versión pública del perfil."
+"Story","HDU-06 · Crear spot","SCRUM-2","High","Como usuario, quiero registrar un spot con nombre, ubicación, descripción e imágenes, para compartir lugares para patinar.
+
+Criterios de aceptación:
+- El spot debe tener nombre, tipo y coordenadas.
+- El sistema guarda el creador.
+- El spot queda visible en el mapa."
+"Story","HDU-07 · Buscar spots","SCRUM-2","High","Como usuario, quiero buscar spots por texto, para encontrar lugares rápidamente.
+
+Criterios de aceptación:
+- La búsqueda responde solo desde 2 caracteres.
+- Los resultados muestran nombre, tipo y ubicación."
+"Story","HDU-08 · Calificar spot","SCRUM-2","Medium","Como usuario, quiero calificar un spot, para ayudar a otros skaters a conocer su calidad.
+
+Criterios de aceptación:
+- La calificación está entre 1 y 5.
+- No se duplica calificación; se actualiza la existente."
+"Story","HDU-09 · Publicar en el feed","SCRUM-3","High","Como usuario, quiero publicar texto e imágenes, para compartir contenido con la comunidad.
+
+Criterios de aceptación:
+- La publicación queda asociada al usuario autenticado.
+- Se muestra en el feed ordenada por fecha."
+"Story","HDU-10 · Interactuar con publicaciones","SCRUM-3","Medium","Como usuario, quiero dar like y comentar publicaciones, para participar en la comunidad.
+
+Criterios de aceptación:
+- Puede dar o quitar like.
+- Puede comentar.
+- Los contadores se actualizan correctamente."
+"Story","HDU-11 · Enviar mensaje privado","SCRUM-4","Medium","Como usuario, quiero enviar mensajes privados, para conversar con otros skaters.
+
+Criterios de aceptación:
+- El mensaje usa la identidad autenticada.
+- No se puede simular ser otra persona.
+- La conversación se ordena por fecha."
+"Story","HDU-12 · Gestionar amistades","SCRUM-4","Low","Como usuario, quiero enviar y aceptar solicitudes de amistad, para construir mi red dentro de la app.
+
+Criterios de aceptación:
+- Una solicitud puede estar pendiente, aceptada o rechazada.
+- No se permiten solicitudes duplicadas."
+"Story","HDU-13 · Crear duelo","SCRUM-5","Medium","Como usuario, quiero desafiar a otro usuario a un duelo S.K.A.T.E., para competir dentro de la comunidad.
+
+Criterios de aceptación:
+- Registra desafiante, oponente, estado y apuesta si aplica.
+- Valida créditos suficientes si el duelo usa créditos."
+"Story","HDU-14 · Ranking","SCRUM-5","Low","Como usuario, quiero ver un ranking, para comparar mi progreso con otros skaters.
+
+Criterios de aceptación:
+- Muestra usuarios ordenados por puntaje.
+- Visualiza nickname, avatar y puntaje."
+"Story","HDU-15 · Puntos e insignias","SCRUM-5","Low","Como usuario, quiero ganar puntos e insignias, para sentir progreso dentro de la app.
+
+Criterios de aceptación:
+- Los puntos se actualizan según reglas definidas.
+- Las insignias se asignan al cumplir condiciones."
+"Story","HDU-16 · Ver eventos","SCRUM-6","Medium","Como usuario, quiero ver eventos de la comunidad, para participar en actividades skater.
+
+Criterios de aceptación:
+- Los eventos muestran fecha, descripción, imagen y ubicación.
+- Puede ver el detalle de un evento."
+"Story","HDU-17 · Confirmar asistencia","SCRUM-6","Low","Como usuario, quiero confirmar asistencia a un evento, para indicar que participaré.
+
+Criterios de aceptación:
+- La asistencia queda asociada al usuario.
+- Puede consultar su estado de asistencia."
+"Story","HDU-18 · Canjear recompensa","SCRUM-7","Medium","Como usuario, quiero canjear mis puntos por recompensas, para obtener beneficios por participar.
+
+Criterios de aceptación:
+- Valida puntos suficientes.
+- Valida stock disponible.
+- El canje no deja stock ni puntos negativos."
+"Story","HDU-19 · Validar entrega de recompensa","SCRUM-7","Medium","Como local asociado, quiero validar un código o QR, para confirmar la entrega de una recompensa.
+
+Criterios de aceptación:
+- El código debe ser válido y no usado.
+- La entrega queda registrada con fecha y responsable."
+"Story","HDU-20 · Gestionar recompensas","SCRUM-8","High","Como administrador, quiero crear, editar y desactivar recompensas, para mantener el catálogo.
+
+Criterios de aceptación:
+- Solo administradores pueden gestionarlas.
+- El backend valida el rol de administrador."
+"Story","HDU-21 · Gestionar eventos","SCRUM-8","Medium","Como administrador, quiero crear y eliminar eventos, para administrar actividades oficiales.
+
+Criterios de aceptación:
+- Solo administradores pueden crear o eliminar eventos.
+- El evento queda disponible para los usuarios."
+"Story","HDU-22 · Autenticación real por token","SCRUM-9","High","Como sistema, quiero validar un token firmado en endpoints sensibles, para evitar la suplantación de identidad.
+
+Criterios de aceptación:
+- El login emite token.
+- El frontend envía Authorization: Bearer.
+- El backend obtiene el usuario desde el token.
+- Los endpoints sensibles dejan de confiar en el id_usuario del cliente."
+"Story","HDU-23 · Autorización de administradores","SCRUM-9","High","Como sistema, quiero validar el rol administrador en el backend, para evitar que un usuario común actúe como admin.
+
+Criterios de aceptación:
+- El backend consulta es_admin.
+- El endpoint rechaza no-admin con 403.
+- Ya no se usa admin_nickname como prueba de identidad."
+"Story","HDU-24 · Pruebas de seguridad negativas","SCRUM-9","High","Como equipo, queremos pruebas que intenten acciones no permitidas, para comprobar que las vulnerabilidades fueron corregidas.
+
+Criterios de aceptación:
+- Prueba de ruta admin sin token.
+- Prueba de usuario común intentando acción admin.
+- Prueba de usuario leyendo mensajes ajenos."
+"Story","HDU-25 · Pipeline de validación","SCRUM-10","Medium","Como equipo, queremos que cada PR ejecute validaciones automáticas, para reducir errores antes de mergear.
+
+Criterios de aceptación:
+- Backend ejecuta import/lint/test.
+- Frontend ejecuta analyze/test.
+- Un PR fallido no se mergea."
+"Story","HDU-26 · Documentación técnica y académica","SCRUM-10","High","Como equipo Capstone, queremos documentar arquitectura, requerimientos, sprints y pruebas, para demostrar un proceso profesional.
+
+Criterios de aceptación:
+- Existe ERS.
+- Existe backlog con HDU.
+- Existe plan de sprints.
+- Existe trazabilidad entre Jira, commits, PR y pruebas."
