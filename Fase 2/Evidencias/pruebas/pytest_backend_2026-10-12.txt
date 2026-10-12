@@ -1,0 +1,72 @@
+============================= test session starts ==============================
+platform linux -- Python 3.10.22, pytest-9.1.1, pluggy-1.6.0 -- /usr/local/bin/python3
+cachedir: .pytest_cache
+rootdir: /app
+plugins: anyio-4.15.1
+collecting ... collected 35 items
+
+tests/test_autenticacion.py::test_login_correcto_devuelve_el_par_de_tokens PASSED [  2%]
+tests/test_autenticacion.py::test_login_con_password_incorrecta_no_emite_nada PASSED [  5%]
+tests/test_autenticacion.py::test_password_en_claro_no_autentica PASSED  [  8%]
+tests/test_autenticacion.py::test_password_legacy_se_migra_a_bcrypt_en_el_login PASSED [ 11%]
+tests/test_autenticacion.py::test_token_con_firma_alterada_no_vale PASSED [ 14%]
+tests/test_autenticacion.py::test_token_expirado_no_vale PASSED          [ 17%]
+tests/test_autenticacion.py::test_refresh_entrega_un_par_nuevo_y_rota PASSED [ 20%]
+tests/test_autenticacion.py::test_refresh_desconocido_da_401 PASSED      [ 22%]
+tests/test_autenticacion.py::test_reutilizar_un_refresh_rotado_cierra_todas_las_sesiones PASSED [ 25%]
+tests/test_autenticacion.py::test_logout_invalida_el_refresh_de_inmediato PASSED [ 28%]
+tests/test_autenticacion.py::test_logout_repetido_no_es_un_error PASSED  [ 31%]
+tests/test_seguridad_negativa.py::test_ruta_admin_sin_token_da_401 PASSED [ 34%]
+tests/test_seguridad_negativa.py::test_usuario_comun_no_puede_entrar_a_ruta_admin PASSED [ 37%]
+tests/test_seguridad_negativa.py::test_usuario_comun_no_escala_declarando_el_id_del_admin PASSED [ 40%]
+tests/test_seguridad_negativa.py::test_usuario_comun_no_escala_declarando_el_nickname_del_admin PASSED [ 42%]
+tests/test_seguridad_negativa.py::test_el_admin_no_necesita_declarar_quien_es PASSED [ 45%]
+tests/test_seguridad_negativa.py::test_quitar_el_rol_admin_tiene_efecto_inmediato PASSED [ 48%]
+tests/test_seguridad_negativa.py::test_run_init_db_exige_admin_fuera_de_debug PASSED [ 51%]
+tests/test_seguridad_negativa.py::test_renombrarse_como_admin_no_concede_el_rol PASSED [ 54%]
+tests/test_seguridad_negativa.py::test_no_se_pueden_leer_los_mensajes_de_otro PASSED [ 57%]
+tests/test_seguridad_negativa.py::test_no_se_puede_abrir_una_conversacion_ajena PASSED [ 60%]
+tests/test_seguridad_negativa.py::test_el_remitente_de_un_mensaje_sale_del_token PASSED [ 62%]
+tests/test_seguridad_negativa.py::test_no_se_puede_editar_el_perfil_de_otro PASSED [ 65%]
+tests/test_seguridad_negativa.py::test_la_partida_se_crea_a_nombre_del_dueno_del_token PASSED [ 68%]
+tests/test_seguridad_negativa.py::test_la_autoria_de_un_post_sale_del_token PASSED [ 71%]
+tests/test_seguridad_negativa.py::test_con_el_grupo_estricto_no_se_pasa_sin_token PASSED [ 74%]
+tests/test_seguridad_negativa.py::test_al_desactivar_el_grupo_se_vuelve_al_modo_dual PASSED [ 77%]
+tests/test_seguridad_negativa.py::test_los_endpoints_publicos_siguen_abiertos PASSED [ 80%]
+tests/test_seguridad_negativa.py::test_no_se_puede_dar_letra_suplantando_al_setter PASSED [ 82%]
+tests/test_seguridad_negativa.py::test_no_se_puede_declarar_perdedor_a_uno_mismo PASSED [ 85%]
+tests/test_seguridad_negativa.py::test_no_se_puede_pasar_el_turno_suplantando_al_setter PASSED [ 88%]
+tests/test_seguridad_negativa.py::test_no_se_puede_crear_solicitud_de_amistad_a_nombre_de_otro PASSED [ 91%]
+tests/test_seguridad_negativa.py::test_no_se_puede_aceptar_solicitud_de_amistad_ajena PASSED [ 94%]
+tests/test_seguridad_negativa.py::test_no_se_puede_borrar_una_amistad_ajena PASSED [ 97%]
+tests/test_seguridad_negativa.py::test_no_se_puede_calificar_un_spot_a_nombre_de_otro SKIPPED [100%]
+
+=============================== warnings summary ===============================
+../usr/local/lib/python3.10/site-packages/fastapi/testclient.py:1
+  /usr/local/lib/python3.10/site-packages/fastapi/testclient.py:1: StarletteDeprecationWarning: Using `httpx` with `starlette.testclient` is deprecated; install `httpx2` instead.
+    from starlette.testclient import TestClient as TestClient  # noqa
+
+app/main.py:196
+  /app/app/main.py:196: DeprecationWarning: 
+          on_event is deprecated, use lifespan event handlers instead.
+  
+          Read more about it in the
+          [FastAPI docs for Lifespan Events](https://fastapi.tiangolo.com/advanced/events/).
+          
+    @app.on_event("startup")
+
+../usr/local/lib/python3.10/site-packages/fastapi/applications.py:4745
+  /usr/local/lib/python3.10/site-packages/fastapi/applications.py:4745: DeprecationWarning: 
+          on_event is deprecated, use lifespan event handlers instead.
+  
+          Read more about it in the
+          [FastAPI docs for Lifespan Events](https://fastapi.tiangolo.com/advanced/events/).
+          
+    return self.router.on_event(event_type)  # ty: ignore[deprecated]
+
+tests/test_seguridad_negativa.py::test_renombrarse_como_admin_no_concede_el_rol
+  /app/app/main.py:1182: PydanticDeprecatedSince20: The `dict` method is deprecated; use `model_dump` instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.14/migration/
+    campos = data.dict(exclude_unset=True)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+================== 34 passed, 1 skipped, 4 warnings in 31.04s ==================
