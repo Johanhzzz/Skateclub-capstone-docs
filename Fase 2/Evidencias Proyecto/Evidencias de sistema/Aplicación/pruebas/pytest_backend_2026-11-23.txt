@@ -1,0 +1,100 @@
+============================= test session starts ==============================
+platform linux -- Python 3.13.18, pytest-9.1.1, pluggy-1.6.0 -- /usr/local/bin/python3
+rootdir: /tmp/be
+plugins: platformdirs-4.13.5, anyio-4.15.1
+collecting ... collected 61 items
+
+tests/test_autenticacion.py::test_login_correcto_devuelve_el_par_de_tokens PASSED [  1%]
+tests/test_autenticacion.py::test_login_con_password_incorrecta_no_emite_nada PASSED [  3%]
+tests/test_autenticacion.py::test_password_en_claro_no_autentica PASSED  [  4%]
+tests/test_autenticacion.py::test_password_legacy_se_migra_a_bcrypt_en_el_login PASSED [  6%]
+tests/test_autenticacion.py::test_token_con_firma_alterada_no_vale PASSED [  8%]
+tests/test_autenticacion.py::test_token_expirado_no_vale PASSED          [  9%]
+tests/test_autenticacion.py::test_refresh_entrega_un_par_nuevo_y_rota PASSED [ 11%]
+tests/test_autenticacion.py::test_refresh_desconocido_da_401 PASSED      [ 13%]
+tests/test_autenticacion.py::test_reutilizar_un_refresh_rotado_cierra_todas_las_sesiones PASSED [ 14%]
+tests/test_autenticacion.py::test_logout_invalida_el_refresh_de_inmediato PASSED [ 16%]
+tests/test_autenticacion.py::test_logout_repetido_no_es_un_error PASSED  [ 18%]
+tests/test_perfil.py::test_perfil_publico_de_otro_es_de_ese_otro PASSED  [ 19%]
+tests/test_perfil.py::test_perfil_publico_no_expone_email PASSED         [ 21%]
+tests/test_perfil.py::test_stats_publicas_son_del_usuario_del_path PASSED [ 22%]
+tests/test_perfil.py::test_el_dueno_ve_su_propio_email PASSED            [ 24%]
+tests/test_perfil.py::test_no_se_expone_el_email_de_otro PASSED          [ 26%]
+tests/test_perfil.py::test_sin_token_no_se_expone_el_email PASSED        [ 27%]
+tests/test_perfil.py::test_un_admin_ve_el_email_de_cualquiera PASSED     [ 29%]
+tests/test_seguridad_negativa.py::test_ruta_admin_sin_token_da_401 PASSED [ 31%]
+tests/test_seguridad_negativa.py::test_usuario_comun_no_puede_entrar_a_ruta_admin PASSED [ 32%]
+tests/test_seguridad_negativa.py::test_usuario_comun_no_escala_declarando_el_id_del_admin PASSED [ 34%]
+tests/test_seguridad_negativa.py::test_usuario_comun_no_escala_declarando_el_nickname_del_admin PASSED [ 36%]
+tests/test_seguridad_negativa.py::test_el_admin_no_necesita_declarar_quien_es PASSED [ 37%]
+tests/test_seguridad_negativa.py::test_quitar_el_rol_admin_tiene_efecto_inmediato PASSED [ 39%]
+tests/test_seguridad_negativa.py::test_run_init_db_exige_admin_fuera_de_debug PASSED [ 40%]
+tests/test_seguridad_negativa.py::test_renombrarse_como_admin_no_concede_el_rol PASSED [ 42%]
+tests/test_seguridad_negativa.py::test_no_se_pueden_leer_los_mensajes_de_otro PASSED [ 44%]
+tests/test_seguridad_negativa.py::test_no_se_puede_abrir_una_conversacion_ajena PASSED [ 45%]
+tests/test_seguridad_negativa.py::test_el_remitente_de_un_mensaje_sale_del_token PASSED [ 47%]
+tests/test_seguridad_negativa.py::test_no_se_puede_editar_el_perfil_de_otro PASSED [ 49%]
+tests/test_seguridad_negativa.py::test_la_partida_se_crea_a_nombre_del_dueno_del_token PASSED [ 50%]
+tests/test_seguridad_negativa.py::test_la_autoria_de_un_post_sale_del_token PASSED [ 52%]
+tests/test_seguridad_negativa.py::test_con_el_grupo_estricto_no_se_pasa_sin_token PASSED [ 54%]
+tests/test_seguridad_negativa.py::test_sin_token_siempre_401_aunque_no_haya_enforce PASSED [ 55%]
+tests/test_seguridad_negativa.py::test_los_endpoints_publicos_siguen_abiertos PASSED [ 57%]
+tests/test_seguridad_negativa.py::test_no_se_puede_dar_letra_suplantando_al_setter PASSED [ 59%]
+tests/test_seguridad_negativa.py::test_no_se_puede_declarar_perdedor_a_uno_mismo PASSED [ 60%]
+tests/test_seguridad_negativa.py::test_no_se_puede_pasar_el_turno_suplantando_al_setter PASSED [ 62%]
+tests/test_seguridad_negativa.py::test_no_se_puede_crear_solicitud_de_amistad_a_nombre_de_otro PASSED [ 63%]
+tests/test_seguridad_negativa.py::test_no_se_puede_aceptar_solicitud_de_amistad_ajena PASSED [ 65%]
+tests/test_seguridad_negativa.py::test_no_se_puede_borrar_una_amistad_ajena PASSED [ 67%]
+tests/test_seguridad_negativa.py::test_no_se_puede_calificar_un_spot_a_nombre_de_otro PASSED [ 68%]
+tests/test_seguridad_negativa.py::test_responder_pregunta_de_evento_exige_token PASSED [ 70%]
+tests/test_seguridad_negativa.py::test_crear_pregunta_de_evento_exige_token PASSED [ 72%]
+tests/test_spots_eventos_recompensas.py::test_crear_spot_sin_token_da_401 PASSED [ 73%]
+tests/test_spots_eventos_recompensas.py::test_el_creador_del_spot_sale_del_token PASSED [ 75%]
+tests/test_spots_eventos_recompensas.py::test_spot_sin_foto_o_tipo_invalido_se_rechaza PASSED [ 77%]
+tests/test_spots_eventos_recompensas.py::test_el_spot_creado_aparece_en_el_mapa PASSED [ 78%]
+tests/test_spots_eventos_recompensas.py::test_solo_el_creador_cambia_la_imagen_del_spot PASSED [ 80%]
+tests/test_spots_eventos_recompensas.py::test_la_busqueda_exige_al_menos_dos_caracteres PASSED [ 81%]
+tests/test_spots_eventos_recompensas.py::test_la_busqueda_encuentra_el_spot_por_nombre PASSED [ 83%]
+tests/test_spots_eventos_recompensas.py::test_la_calificacion_debe_estar_entre_1_y_5 PASSED [ 85%]
+tests/test_spots_eventos_recompensas.py::test_calificar_dos_veces_actualiza_en_vez_de_duplicar PASSED [ 86%]
+tests/test_spots_eventos_recompensas.py::test_si_el_correo_falla_se_responde_error_y_se_invalida_el_codigo PASSED [ 88%]
+tests/test_spots_eventos_recompensas.py::test_si_el_correo_sale_se_confirma_el_envio PASSED [ 90%]
+tests/test_spots_eventos_recompensas.py::test_recuperar_con_email_inexistente_no_revela_si_existe PASSED [ 91%]
+tests/test_spots_eventos_recompensas.py::test_crear_evento_sin_token_da_401 PASSED [ 93%]
+tests/test_spots_eventos_recompensas.py::test_el_creador_del_evento_sale_del_token PASSED [ 95%]
+tests/test_spots_eventos_recompensas.py::test_validar_entrega_exige_sesion PASSED [ 96%]
+tests/test_spots_eventos_recompensas.py::test_un_usuario_comun_no_canjea_como_vendedor_declarando_otro_id PASSED [ 98%]
+tests/test_spots_eventos_recompensas.py::test_subir_imagenes_exige_sesion PASSED [100%]
+
+=============================== warnings summary ===============================
+app/main.py:167
+  /tmp/be/app/main.py:167: DeprecationWarning: 
+          on_event is deprecated, use lifespan event handlers instead.
+  
+          Read more about it in the
+          [FastAPI docs for Lifespan Events](https://fastapi.tiangolo.com/advanced/events/).
+          
+    @app.on_event("startup")
+
+../../usr/local/lib/python3.13/site-packages/fastapi/applications.py:5039
+  /usr/local/lib/python3.13/site-packages/fastapi/applications.py:5039: DeprecationWarning: 
+          on_event is deprecated, use lifespan event handlers instead.
+  
+          Read more about it in the
+          [FastAPI docs for Lifespan Events](https://fastapi.tiangolo.com/advanced/events/).
+          
+    return self.router.on_event(event_type)  # ty: ignore[deprecated]
+
+tests/test_autenticacion.py: 14 warnings
+tests/test_perfil.py: 12 warnings
+tests/test_seguridad_negativa.py: 39 warnings
+tests/test_spots_eventos_recompensas.py: 16 warnings
+  /tmp/be/app/core/security.py:211: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+    ahora = datetime.utcnow()
+
+tests/test_seguridad_negativa.py::test_renombrarse_como_admin_no_concede_el_rol
+  /tmp/be/app/main.py:1176: PydanticDeprecatedSince20: The `dict` method is deprecated; use `model_dump` instead. Deprecated in Pydantic V2.0 to be removed in V3.0. See Pydantic V2 Migration Guide at https://errors.pydantic.dev/2.13/migration/
+    campos = data.dict(exclude_unset=True)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+======================= 61 passed, 84 warnings in 40.03s =======================
